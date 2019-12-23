@@ -10,12 +10,11 @@ gtts.gTTS(text="돈이 부족합니다, 당신은 빈털털이 입니까? ",lang
 
        
 pygame.mixer.init()
-pygame.mixer.music.load('C:\\Users\\david\\a.mp3')
-pygame.mixer.music.play()
-
 
 while True :
 
+     pygame.mixer.music.load('C:\\Users\\david\\a.mp3')
+     pygame.mixer.music.play()
      i = input("무슨 음료수를 드시겠습니까?\n1번은 콜라 2번은 사이다, 3번은 랜덤입니다\n>>")
 
  
@@ -109,5 +108,12 @@ while True :
           break
            
      else:
+          gtts.gTTS(text="없는메뉴입니다. 다시 선택해주세요! ",lang='ko').save("C:\\Users\\david\\i.mp3")
+          pygame.mixer.music.load('C:\\Users\\david\\i.mp3')
+          pygame.mixer.music.play()
+
           print("없는메뉴입니다. 다시 선택해주세요. ")
 
+          import time
+          time.sleep(5)
+          
