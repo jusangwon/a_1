@@ -1,0 +1,115 @@
+cola = 1000
+sidar = 1000
+up_da = 1500
+print("로딩중...한국어파일을 설치중입니다 잠시만 기다려주세요 ")
+
+import gtts
+import pygame
+gtts.gTTS(text="안녕하세요, 무슨 음료수를 드시겠습니까? 1번은 콜라, 2번은 사이다, 3번은 랜덤입니다 ",lang='ko').save("C:\\Users\\david\\a.mp3")
+gtts.gTTS(text="돈이 부족합니다, 당신은 빈털털이 입니까? ",lang='ko').save("C:\\Users\\david\\c.mp3")
+
+       
+pygame.mixer.init()
+pygame.mixer.music.load('C:\\Users\\david\\a.mp3')
+pygame.mixer.music.play()
+
+
+while True :
+
+     i = input("무슨 음료수를 드시겠습니까?\n1번은 콜라 2번은 사이다, 3번은 랜덤입니다\n>>")
+
+ 
+     if i == "1":
+          
+          gtts.gTTS(text="콜라가 선택되었습니다. 넣을금액을 입력해주세요 ",lang='ko').save("C:\\Users\\david\\b.mp3")
+
+          pygame.mixer.music.load('C:\\Users\\david\\b.mp3')
+          pygame.mixer.music.play()
+  
+          
+          print("콜라가 선택되었습니다.")
+          a = int(input("넣을금액을 입력해주세요 \n>>"))
+
+
+           
+          while a < cola:
+               
+               gtts.gTTS(text="콜라가 나왔습니다. 거스름돈을 확인해주세요! ",lang='ko').save("C:\\Users\\david\\d.mp3")
+     
+               pygame.mixer.music.load('C:\\Users\\david\\c.mp3')
+               pygame.mixer.music.play()
+               
+               print("돈이 부족합니다")
+               print("현재 금액 :",a,"    부족한돈 :",cola-a)
+               m=int(input("더넣을돈 : "))
+               a=a+m
+
+          pygame.mixer.music.load('C:\\Users\\david\\d.mp3')
+          pygame.mixer.music.play()
+          
+          print("콜라가 나왔습니다. 거스름돈은 %d원입니다." % (a - cola))
+          break
+   
+     elif i == "2":
+
+          gtts.gTTS(text="사이다가 선택되었습니다. 넣을금액을 입력해주세요",lang='ko').save("C:\\Users\\david\\e.mp3")
+          
+          pygame.mixer.music.load('C:\\Users\\david\\e.mp3')
+          pygame.mixer.music.play()
+          
+          print("사이다가 선택되었습니다.")
+          a = int(input("넣을금액을 입력해주세요 \n>>"))
+     
+          while a < sidar:
+
+               pygame.mixer.music.load('C:\\Users\\david\\c.mp3')
+               pygame.mixer.music.play()
+               
+               print("돈이 부족합니다.")
+               print("현재금액 : ",a,"    부족한돈 :",sidar-a)
+               m=int(input("더넣을돈 : " ))
+
+               a=a+m
+
+          gtts.gTTS(text="사이다가 나왔습니다. 거스름돈을 확인해주세요! ",lang='ko').save("C:\\Users\\david\\f.mp3")
+
+          pygame.mixer.music.load('C:\\Users\\david\\f.mp3')
+          pygame.mixer.music.play()
+          
+          print("사이다가 나왔습니다. 거스릅돈은 %d원입니다." % (a- sidar))
+          break
+
+     elif i == "3":
+
+          gtts.gTTS(text="랜덤상품이 선택되었습니다. 넣을금액을 입력해주세요",lang='ko').save("C:\\Users\\david\\g.mp3")
+          
+          pygame.mixer.music.load('C:\\Users\\david\\g.mp3')
+          pygame.mixer.music.play()
+          
+          print("랜덤상품이 선택되었습니다. ")
+          a = int(input("넣을금액을 입력해주세요 \n>>"))
+
+          while a < up_da:
+
+               pygame.mixer.music.load('C:\\Users\\david\\c.mp3')
+               pygame.mixer.music.play()
+               
+               print(" \n돈이 부족합니다.")
+               print("현재금액 : " ,a,"   부족한돈 :",up_da-a)
+               m=int(input("더넣을돈 : "))
+
+               a=a+m
+
+          gtts.gTTS(text="솔의눈이 나왔습니다. 하!하!, 거스름돈을 확인해주세요! ",lang='ko').save("C:\\Users\\david\\h.mp3")
+
+          pygame.mixer.music.load('C:\\Users\\david\\h.mp3')
+          pygame.mixer.music.play()
+          
+          print(" \n'솔의 눈'이 선택되었습니다. 거스름돈은 %d원입니다." % (a - up_da))
+          break
+           
+     else:
+          print("없는메뉴입니다. 다시 선택해주세요. ")
+          
+
+
